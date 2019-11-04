@@ -87,3 +87,12 @@ textarea {
   color: #16c0b0;
   text-decoration: underline;
 }
+
+.cart-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.outOfStock {
+  text-decoration: line-through;
+}
