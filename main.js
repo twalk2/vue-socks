@@ -1,10 +1,10 @@
 var app = new Vue({
   el: "#app",
   data: {
+    brand: "Vue Mastery",
     product: "Socks",
     description: "Soft, breathable material for maximum comfort.",
-    image: "./images/green-vue-socks.png",
-    // image: "./images/blue-vue-socks.png"
+    selectedVariant: 0,
     website: "https://utah-ski-central.herokuapp.com/",
     inStock: false,
     onSale: true,
@@ -35,8 +35,17 @@ var app = new Vue({
         return 0;
       }
     },
-    updateProduct(variantImage) {
-      this.image = variantImage;
+    updateProduct(index) {
+      this.selectedVariant = index;
+      console.log(index);
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + " " + this.product;
+    },
+    image() {
+      return this.variants[this.selectedVariant].variantImage;
     }
   }
 });

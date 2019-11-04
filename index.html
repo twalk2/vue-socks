@@ -11,11 +11,11 @@
     <div id="app">
       <div class="product">
         <div class="product-image">
-          <img v-bind:src="image" :alt="description" />
+          <img :src="image" :alt="description" />
         </div>
 
         <div class="product-info">
-          <h1>{{ product }}</h1>
+          <h1>{{ title }}</h1>
           <p v-if="inStock">In Stock</p>
           <p v-else :class="{ outOfStock: !inStock }">Out of Stock</p>
           <p v-if="onSale">On Sale!</p>
@@ -24,11 +24,11 @@
           </ul>
 
           <div
-            v-for="variant in variants"
+            v-for="(variant, index) in variants"
             :key="variant.varianId"
             class="color-box"
             :style="{ backgroundColor: variant.variantColor}"
-            @mouseover="updateProduct(variant.variantImage)"
+            @mouseover="updateProduct(index)"
           ></div>
 
           <ul>
